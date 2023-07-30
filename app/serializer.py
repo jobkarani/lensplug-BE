@@ -1,99 +1,72 @@
 from rest_framework import serializers
 from .models import *
 
-class WeddingCakesSerializer(serializers.ModelSerializer):
+class VehicleLightsSerializer(serializers.ModelSerializer):
+    category_name = serializers.CharField(source='category.name')
+    category_slug = serializers.CharField(source='category.slug')
+    category_id = serializers.IntegerField(source='category.id')
     class Meta:
-        model = WeddingCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description', 'is_available']
+        model = VehicleLights
+        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description', 'price', 'category', 'is_available','category_name','category_slug', 'category_id']
 
-class BabyShowerCakesSerializer(serializers.ModelSerializer):
+class VehicleLightsCategorySerializer(serializers.ModelSerializer):
+    vehiclelights = VehicleLightsSerializer(many=True, read_only=True)
     class Meta:
-        model = BabyShowerCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
+        model = VehicleLightsCategory
+        fields = ['id', 'name', 'slug', 'vehiclelights']
 
-class BridalShowerCakesSerializer(serializers.ModelSerializer):
+class AccessoriesSerializer(serializers.ModelSerializer):
+    category_name = serializers.CharField(source='category.name')
+    category_slug = serializers.CharField(source='category.slug')
+    category_id = serializers.IntegerField(source='category.id')
     class Meta:
-        model = BridalShowerCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
+        model = Accessories
+        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description', 'price', 'category', 'is_available','category_name','category_slug', 'category_id']
 
-class ChristmasCakesSerializer(serializers.ModelSerializer):
+class AccessoriesCategorySerializer(serializers.ModelSerializer):
+    accessories = AccessoriesSerializer(many=True, read_only=True)
     class Meta:
-        model = ChristmasCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
+        model = AccessoriesCategory
+        fields = ['id', 'name', 'slug', 'accessories']
 
-class EasterCakesSerializer(serializers.ModelSerializer):
+class BulbsSerializer(serializers.ModelSerializer):
+    category_name = serializers.CharField(source='category.name')
+    category_slug = serializers.CharField(source='category.slug')
+    category_id = serializers.IntegerField(source='category.id')
     class Meta:
-        model = EasterCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
+        model = Bulbs
+        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description', 'price', 'category', 'is_available','category_name','category_slug', 'category_id']
 
-class FathersDayCakesSerializer(serializers.ModelSerializer):
+class BulbsCategorySerializer(serializers.ModelSerializer):
+    bulbs = BulbsSerializer(many=True, read_only=True)
     class Meta:
-        model = FathersDayCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
+        model = BulbsCategory
+        fields = ['id', 'name', 'slug', 'bulbs']
 
-class MothersDayCakesSerializer(serializers.ModelSerializer):
+class GrillesSerializer(serializers.ModelSerializer):
+    category_name = serializers.CharField(source='category.name')
+    category_slug = serializers.CharField(source='category.slug')
+    category_id = serializers.IntegerField(source='category.id')
     class Meta:
-        model = MothersDayCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
+        model = Grilles
+        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description', 'price', 'category', 'is_available','category_name','category_slug', 'category_id']
 
-
-class GraduationCakesSerializer(serializers.ModelSerializer):
+class GrillesCategorySerializer(serializers.ModelSerializer):
+    grilles = GrillesSerializer(many=True, read_only=True)
     class Meta:
-        model = GraduationCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
-
-
-class ValentinesCakesSerializer(serializers.ModelSerializer):
+        model = GrillesCategory
+        fields = ['id', 'name', 'slug', 'grilles']
+    
+class BumperAndPartsSerializer(serializers.ModelSerializer):
+    category_name = serializers.CharField(source='category.name')
+    category_slug = serializers.CharField(source='category.slug')
+    category_id = serializers.IntegerField(source='category.id')
     class Meta:
-        model = ValentinesCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
+        model = BumperAndParts
+        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description', 'price', 'category', 'is_available','category_name','category_slug', 'category_id']
 
-
-class RuracioCakesSerializer(serializers.ModelSerializer):
+class BumperAndPartsCategorySerializer(serializers.ModelSerializer):
+    bumperandparts = BumperAndPartsSerializer(many=True, read_only=True)
     class Meta:
-        model = RuracioCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
-
-class EngagementCakesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = EngagementCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
-
-class CoporateCakesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CoporateCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
-
-class AnniversaryCakesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = AnniversaryCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
-
-class BaptismalCakesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = BaptismalCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
-
-class ChristeningCakesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ChristeningCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']
-
-class BirthdayCakesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = BirthdayCakes
-        fields = ['id', 'name', 'slug', 'image', 'image2', 'image3', 'description','price', 'is_available']       
-
-class BlogsSerializer(serializers.ModelSerializer):
-    category_name = serializers.CharField(source='blog_category.name')
-    category_slug = serializers.CharField(source='blog_category.slug')
-    category_id = serializers.IntegerField(source='blog_category.id')
-    class Meta:
-        model = Blogs
-        fields = ['id', 'image', 'heading', 'created_at', 'text','tex2','text3','category_name','category_slug', 'category_id']
-
-class BlogCategorySerializer(serializers.ModelSerializer):
-    blogs = BlogsSerializer(many=True, read_only=True)
-    class Meta:
-        model = Category
-        fields = ['id', 'name', 'slug', 'blogs']
+        model = BumperAndPartsCategory
+        fields = ['id', 'name', 'slug', 'bumperandparts']
