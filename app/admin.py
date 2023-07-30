@@ -4,94 +4,53 @@ from app.models import *
 
 # Register your models here.
 
-class CategoryAdmin(admin.ModelAdmin):
+class VehicleLightsCategoryAdmin(admin.ModelAdmin):
     list_display = ('name','slug')
     prepopulated_fields = {'slug': ('name',)}
 
-class BlogCategoryAdmin(admin.ModelAdmin):
+class VehicleLightsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'is_available')
+    prepopulated_fields = {'slug': ('name',)}  
+
+class AccessoriesCategoryAdmin(admin.ModelAdmin):
     list_display = ('name','slug')
     prepopulated_fields = {'slug': ('name',)}
 
-class BabyShowerCakesAdmin(admin.ModelAdmin):
+class AccessoriesAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'is_available')
+    prepopulated_fields = {'slug': ('name',)}  
+
+class BulbsCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name','slug')
+    prepopulated_fields = {'slug': ('name',)}
+
+class BulbsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'is_available')
+    prepopulated_fields = {'slug': ('name',)}  
+
+class GrillesCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name','slug')
+    prepopulated_fields = {'slug': ('name',)}
+
+class GrillesAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'is_available')
+    prepopulated_fields = {'slug': ('name',)}  
+
+class BumperAndPartsCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name','slug')
+    prepopulated_fields = {'slug': ('name',)}
+
+class BumperAndPartsAdmin(admin.ModelAdmin):
     list_display = ('name', 'price', 'is_available')
     prepopulated_fields = {'slug': ('name',)}    
 
-class BridalShowerCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class ChristmasCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class EasterCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class FathersDayCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class MothersDayCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class GraduationCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class ValentinesCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class RuracioCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class EngagementCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class CoporateCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class AnniversaryCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class BaptismalCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class ChristeningCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class WeddingCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-class BirthdayCakesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'is_available')
-    prepopulated_fields = {'slug': ('name',)}
-
-admin.site.register(BabyShowerCakes, BabyShowerCakesAdmin )
-admin.site.register(BirthdayCakes, BirthdayCakesAdmin )
-admin.site.register(BridalShowerCakes, BridalShowerCakesAdmin )
-admin.site.register(ChristmasCakes, ChristmasCakesAdmin )
-admin.site.register(EasterCakes, EasterCakesAdmin )
-admin.site.register(FathersDayCakes, FathersDayCakesAdmin )
-admin.site.register(MothersDayCakes, MothersDayCakesAdmin )
-admin.site.register(GraduationCakes, GraduationCakesAdmin )
-admin.site.register(ValentinesCakes, ValentinesCakesAdmin )
-admin.site.register(RuracioCakes, RuracioCakesAdmin )
-admin.site.register(EngagementCakes, EngagementCakesAdmin )
-admin.site.register(CoporateCakes, CoporateCakesAdmin )
-admin.site.register(AnniversaryCakes, AnniversaryCakesAdmin )
-admin.site.register(BaptismalCakes, BaptismalCakesAdmin )
-admin.site.register(ChristeningCakes, ChristeningCakesAdmin )
-admin.site.register(WeddingCakes, WeddingCakesAdmin )
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(BlogCategory, BlogCategoryAdmin)
-admin.site.register(Blogs)
+admin.site.register(VehicleLightsCategory, VehicleLightsCategoryAdmin )
+admin.site.register(VehicleLights, VehicleLightsAdmin)
+admin.site.register(AccessoriesCategory, AccessoriesCategoryAdmin )
+admin.site.register(Accessories, AccessoriesAdmin)
+admin.site.register(BulbsCategory, BulbsCategoryAdmin )
+admin.site.register(Bulbs, BulbsAdmin)
+admin.site.register(GrillesCategory, GrillesCategoryAdmin )
+admin.site.register(Grilles, GrillesAdmin)
+admin.site.register(BumperAndPartsCategory, BumperAndPartsCategoryAdmin )
+admin.site.register(BumperAndParts, BumperAndPartsAdmin)
