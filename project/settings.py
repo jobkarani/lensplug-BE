@@ -87,27 +87,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
-# development
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         # 'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
-#         'NAME':'railway',
-#         'USER':'postgres',
-#         'PASSWORD':'ecaRjklgKs5iZOWIPCmA',
-#         'HOST': 'containers-us-west-171.railway.app',
-#         'PORT': '6247',
-#     }
-# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lensplug',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
-        'PORT': '5433',
+        'NAME':'railway',
+        'USER':'postgres',
+        'PASSWORD':'zaJpHEiqtOrFqsDJPOzu',
+        'HOST': 'containers-us-west-162.railway.app',
+        'PORT': '5760',
     }
 }
 
