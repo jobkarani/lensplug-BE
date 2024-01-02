@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.apps.AppConfig', 
     "rest_framework", 
+    'rest_framework.authtoken',
     'cloudinary', 
     'simple_mail', 
 ]
@@ -62,6 +63,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
 
 ROOT_URLCONF = 'project.urls'
 
@@ -91,11 +102,9 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'railway',
+        'NAME':'lensplug',
         'USER':'postgres',
-        'PASSWORD':'zaJpHEiqtOrFqsDJPOzu',
-        'HOST': 'containers-us-west-162.railway.app',
-        'PORT': '5760',
+        'PASSWORD':'postgres',
     }
 }
 

@@ -1,20 +1,27 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User
 from .models import *
+
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ['id', 'username', 'email', 'first_name', 'last_name']
+
+
+# class ProfileSerializer(serializers.ModelSerializer):
+#     user = UserSerializer()
+#     class Meta:
+#         model = Profile
+#         fields = (
+#             'id', 'user', 'firstname', 'lastname', 'profile_photo',
+#             'email', 'phone', 'date_joined'
+#         )
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name']
-
-
-class ProfileSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
-    class Meta:
-        model = Profile
-        fields = (
-            'id', 'user', 'firstname', 'lastname', 'profile_photo',
-            'email', 'phone', 'date_joined'
-        )
+        fields = ['username', 'password', 'email']
+        extra_kwargs = {'password': {'write_only': True}}
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
